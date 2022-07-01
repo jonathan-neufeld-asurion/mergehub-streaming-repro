@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.jonathan.troubleshoot.streaming;
+
+import "google/protobuf/timestamp.proto";
+
+message MyErrorDetails {
+  string code = 1;
+  string message = 2;
+}
+
+message FooEvent {
+  google.protobuf.Timestamp timestamp = 1;
+  string source = 2;
+  string service = 3;
+  int64 responseTime = 4;
+  MyErrorDetails error = 5;
+}
+
+message Received {}
+
+service EventService {
+  rpc publish (stream FooEvent) returns (Received);
+}

@@ -1,0 +1,11 @@
+*.ipr
+*.iws
+*/target/
+/model/build/
+/model/project/
+/target/
+**/.idea/*
+!.idea/runConfigurations
+!.idea/codeStyles
+/project/project/target/
+/.bsp/
